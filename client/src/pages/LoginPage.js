@@ -34,11 +34,16 @@ export default function LoginPage() {
       <input type="text"
              placeholder="username"
              value={username}
-             onChange={ev => setUsername(ev.target.value)}/>
+             onChange={ev => setUsername(ev.target.value)}
+             autoComplete="off"
+             />
+           
       <input type="password"
              placeholder="password"
              value={password}
-             onChange={ev => setPassword(ev.target.value)}/>
+             onChange={ev => setPassword(ev.target.value)}
+             autoComplete="off"
+             />
       <button>Login</button>
     </form>
   );

@@ -1,5 +1,6 @@
-import './App.css';
-import {Route, Routes} from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
@@ -9,8 +10,11 @@ import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 
+
 function App() {
   return (
+    <div>
+      <BrowserRouter>
     <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -23,6 +27,8 @@ function App() {
         </Route>
       </Routes>
     </UserContextProvider>
+  </BrowserRouter>
+    </div>
   );
 }
 
