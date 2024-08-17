@@ -4,7 +4,7 @@ import './App.css'
 import { UserContext } from "./UserContext";
 
 export default function PostsHeader() {
-  const { setUserInfo, userInfo } = useContext(UserContext);
+  const { setUserInfo /*, userInfo */ } = useContext(UserContext);
 
   useEffect(() => {
     console.log("Fetching profile...");
@@ -24,6 +24,7 @@ export default function PostsHeader() {
       });
   }, [setUserInfo]);
 
+  /*
   function logout() {
     console.log("Logging out...");
     fetch("http://localhost:4000/logout", {
@@ -42,10 +43,10 @@ export default function PostsHeader() {
         console.error("Error during logout:", error);
       });
   }
+*/
+  // const username = userInfo?.username;
 
-  const username = userInfo?.username;
-
-  console.log("Rendering header with username:", username);
+  // console.log("Rendering header with username:", username);
 
   return (
     <div className="w3-container w3-content">
@@ -54,6 +55,7 @@ export default function PostsHeader() {
           MyBlog
         </Link>
         <nav>
+          {/* 
           {username ? (
             <>
               <Link to="/create">Create new post</Link>
@@ -62,11 +64,14 @@ export default function PostsHeader() {
               </button>
             </>
           ) : (
+          */}
             <>
               <Link to="/login">Login</Link>
               <Link to="/register">Register</Link>
             </>
-          )}
+          {/* 
+          )} 
+          */}
         </nav>
       </header>
     </div>

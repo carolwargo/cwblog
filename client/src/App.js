@@ -9,12 +9,13 @@ import {UserContextProvider} from "./UserContext";
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
-
+import ErrorBoundary from "./ErrorBoundary";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+    <ErrorBoundary>
     <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -25,11 +26,21 @@ function App() {
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/edit/:id" element={<EditPost />} />
         </Route>
+           {/* Add a catch-all route for handling errors */}
+        <Route path="*" element={<NotFound />} />
+          
       </Routes>
     </UserContextProvider>
+    </ErrorBoundary>
   </BrowserRouter>
     </div>
   );
+}
+
+// Create a component for handling not found routes
+function NotFound() {
+  console.error("Page not found!"); // Log error to console
+  return <h1>404 - Not Found</h1>;
 }
 
 export default App;
