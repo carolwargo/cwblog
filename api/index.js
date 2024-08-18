@@ -95,7 +95,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Get profile
+/* Get profile
 app.get('/profile', (req, res) => {
   console.log('Profile endpoint hit');
   const { token } = req.cookies;
@@ -109,6 +109,7 @@ app.get('/profile', (req, res) => {
     res.json(info);
   });
 });
+*/
 
 // Logout
 app.post('/logout', (req, res) => {
@@ -116,7 +117,8 @@ app.post('/logout', (req, res) => {
   res.cookie('token', '', { expires: new Date(0) }).json('ok');
 });
 
-// Create post
+
+/* Create post
 app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
   console.log('Create post endpoint hit:', req.body);
   const { originalname, path } = req.file;
@@ -146,8 +148,9 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
     res.json(postDoc);
   });
 });
+*/
 
-// Update post
+/* Update post
 app.put('/post', uploadMiddleware.single('file'), async (req, res) => {
   console.log('Update post endpoint hit:', req.body);
   let newPath = null;
@@ -197,8 +200,9 @@ app.put('/post', uploadMiddleware.single('file'), async (req, res) => {
     res.json(postDoc);
   });
 });
+*/
 
-// Get all posts
+/* Get all posts
 app.get('/post', async (req, res) => {
   console.log('Get all posts endpoint hit');
   try {
@@ -213,8 +217,9 @@ app.get('/post', async (req, res) => {
     res.status(500).json('Server error');
   }
 });
+*/
 
-// Get post by ID
+/* Get post by ID
 app.get('/post/:id', async (req, res) => {
   console.log('Get post by ID endpoint hit:', req.params.id);
   const { id } = req.params;
@@ -236,6 +241,7 @@ app.get('/post/:id', async (req, res) => {
     res.status(500).json('Server error');
   }
 });
+*/
 
 // Start server
 app.listen(4000, () => console.log('Server running on port 4000'));
