@@ -12,6 +12,7 @@ import EditPost from "./pages/EditPost";
 */
 import {UserContextProvider} from "./UserContext";
 import HomePage from "./pages/HomePage";
+import HomeLayout from "./components/Layout/HomeLayout";
 import ErrorBoundary from "./ErrorBoundary";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
     <ErrorBoundary>
     <UserContextProvider>
       <Routes>
+      <Route path="/" element={<HomeLayout />}>
+      <Route path="/" element={<HomePage />} />
+      </Route>
         {/*}
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />
@@ -32,7 +36,7 @@ function App() {
         </Route>
         */}
            {/* Add a catch-all route for handling errors */}
-        <Route path="/" element={<HomePage />} />
+      
         <Route path="*" element={<NotFound />} />
       </Routes>
     </UserContextProvider>
